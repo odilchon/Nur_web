@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Clock, CreditCard, Lightning, MapPin } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "../ui";
 import { InstagramButton } from "../OrderButtons";
@@ -26,7 +27,7 @@ function PhoneMock({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           {/* Шапка приложения */}
           <div className="px-5 pt-3">
             <p className="text-lg font-extrabold tracking-tight text-royal-800">
-              <span className="font-light">Nur</span>Delivery
+              <span className="font-light">Nur</span> Delivery
             </p>
             <p className="mt-0.5 flex items-center gap-1 text-xs text-ink-muted">
               <MapPin size={12} weight="fill" />
@@ -62,9 +63,15 @@ function PhoneMock({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           </div>
         </div>
       </div>
-      {/* Значок ND */}
-      <div className="grain absolute -left-5 -top-5 grid h-16 w-16 place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-cream-deep via-glow-coral to-glow-blue shadow-card ring-1 ring-black/5">
-        <span className="relative z-10 text-sm font-extrabold text-cream">ND</span>
+      {/* Значок Nur Delivery */}
+      <div className="absolute -left-5 -top-5 grid h-16 w-16 place-items-center rounded-2xl bg-cream-card shadow-card ring-1 ring-royal-100">
+        <Image
+          src="/nur-logo.png"
+          alt=""
+          width={1020}
+          height={896}
+          className="h-9 w-auto"
+        />
       </div>
     </div>
   );

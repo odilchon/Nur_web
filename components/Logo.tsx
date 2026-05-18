@@ -1,33 +1,64 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { href } from "@/lib/nav";
 import type { Locale } from "@/lib/i18n";
 
 type LogoProps = {
   lang: Locale;
+  /** Цвет вордмарка в составном режиме (на тёмном фоне — "light"). */
   variant?: "dark" | "light";
+  /** Показать готовый полный логотип (иконка + вордмарк одним изображением). */
+  full?: boolean;
   withWordmark?: boolean;
   className?: string;
 };
 
-/** Логотип Nur Delivery: монограмма «ND» в фирменном градиентном круге + вордмарк. */
+/**
+ * Логотип Nur Delivery.
+ * `full` — цельное изображение полного логотипа (для светлого фона, напр. шапка).
+ * Иначе — иконка-локатор + текстовый вордмарк (работает и на тёмном фоне).
+ */
 export function Logo({
   lang,
   variant = "dark",
+  full = false,
   withWordmark = true,
   className,
 }: LogoProps) {
+  if (full) {
+    return (
+      <Link
+        href={href(lang)}
+        aria-label="Nur Delivery"
+        className={cn("inline-flex items-center", className)}
+      >
+        <Image
+          src="/nur-full-logo.png"
+          alt="Nur Delivery"
+          width={3240}
+          height={956}
+          priority
+          className="h-11 w-auto"
+        />
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={href(lang)}
       aria-label="Nur Delivery"
       className={cn("inline-flex items-center gap-2.5", className)}
     >
-      <span className="grain relative grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-gradient-to-br from-cream-deep via-glow-coral to-glow-blue shadow-sm ring-1 ring-black/5">
-        <span className="relative z-10 text-[11px] font-extrabold tracking-tight text-cream">
-          ND
-        </span>
-      </span>
+      <Image
+        src="/nur-logo.png"
+        alt=""
+        width={1020}
+        height={896}
+        priority
+        className="h-9 w-auto"
+      />
       {withWordmark && (
         <span
           className={cn(
@@ -36,7 +67,7 @@ export function Logo({
           )}
         >
           <span className="font-light">Nur</span>
-          <span className="font-extrabold">Delivery</span>
+          <span className="font-extrabold"> Delivery</span>
         </span>
       )}
     </Link>

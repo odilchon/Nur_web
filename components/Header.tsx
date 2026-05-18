@@ -21,7 +21,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <header className="sticky top-0 z-50 border-b border-royal-100 bg-cream/85 backdrop-blur-md">
       <div className="container-nur flex h-16 items-center justify-between gap-4">
-        <Logo lang={lang} />
+        <Logo lang={lang} full />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
