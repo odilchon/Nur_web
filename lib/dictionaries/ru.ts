@@ -7,7 +7,7 @@ export const ru = {
   nav: {
     home: "Главная",
     about: "О нас",
-    categories: "Категории",
+    categories: "Стоимость и категории",
     contacts: "Контакты",
     partners: "Партнёрам",
     couriers: "Курьерам",

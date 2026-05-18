@@ -9,7 +9,7 @@ export const tg: Dictionary = {
   nav: {
     home: "Асосӣ",
     about: "Дар бораи мо",
-    categories: "Категорияҳо",
+    categories: "Нарх ва категорияҳо",
     contacts: "Тамос",
     partners: "Шарикон",
     couriers: "Паёмбарон",

@@ -9,7 +9,7 @@ export const en: Dictionary = {
   nav: {
     home: "Home",
     about: "About",
-    categories: "Categories",
+    categories: "Pricing & categories",
     contacts: "Contacts",
     partners: "Partners",
     couriers: "Couriers",

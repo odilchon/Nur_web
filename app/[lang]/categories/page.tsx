@@ -55,52 +55,56 @@ export default function CategoriesPage({
 
   return (
     <>
-      <PageHeader eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle} />
+      <PageHeader
+        eyebrow={dict.nav.categories}
+        title={c.pricingTitle}
+        subtitle={c.pricingSubtitle}
+      />
 
-      {/* Категории */}
+      {/* Стоимость доставки */}
       <section className="container-nur py-20">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {dict.categories.items.map((item, i) => {
-            const Icon = categoryIcons[i];
-            return (
-              <Reveal
-                key={item.name}
-                delay={i * 55}
-                className="group surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-royal-300 hover:shadow-card"
-              >
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-royal-50 text-royal-500 transition-colors group-hover:bg-royal-500 group-hover:text-cream">
-                  <Icon size={24} weight="duotone" />
-                </span>
-                <h3 className="mt-5 text-lg font-bold text-royal-800">
-                  {item.name}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                  {item.desc}
-                </p>
-              </Reveal>
-            );
-          })}
+        <div className="grid gap-4 lg:grid-cols-2">
+          <PriceList title={c.baseTitle} rows={c.base} />
+          <PriceList title={c.extraTitle} rows={c.extra} />
         </div>
+
+        <p className="mt-6 flex items-start gap-2.5 text-sm leading-relaxed text-ink-muted">
+          <Info size={18} weight="fill" className="mt-0.5 shrink-0 text-royal-400" />
+          {c.disclaimer}
+        </p>
       </section>
 
-      {/* Цены */}
+      {/* Категории доставки */}
       <section className="border-t border-royal-100 bg-royal-50/50">
         <div className="container-nur py-20">
-          <Eyebrow>{c.pricingTitle}</Eyebrow>
+          <Eyebrow>{c.eyebrow}</Eyebrow>
           <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight text-royal-800 md:text-4xl">
-            {c.pricingTitle}
+            {c.title}
           </h2>
-          <p className="mt-3 text-ink-soft">{c.pricingSubtitle}</p>
+          <p className="mt-3 max-w-2xl text-ink-soft">{c.subtitle}</p>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <PriceList title={c.baseTitle} rows={c.base} />
-            <PriceList title={c.extraTitle} rows={c.extra} />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {dict.categories.items.map((item, i) => {
+              const Icon = categoryIcons[i];
+              return (
+                <Reveal
+                  key={item.name}
+                  delay={i * 55}
+                  className="group surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-royal-300 hover:shadow-card"
+                >
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-royal-50 text-royal-500 transition-colors group-hover:bg-royal-500 group-hover:text-cream">
+                    <Icon size={24} weight="duotone" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold text-royal-800">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                    {item.desc}
+                  </p>
+                </Reveal>
+              );
+            })}
           </div>
-
-          <p className="mt-6 flex items-start gap-2.5 text-sm leading-relaxed text-ink-muted">
-            <Info size={18} weight="fill" className="mt-0.5 shrink-0 text-royal-400" />
-            {c.disclaimer}
-          </p>
         </div>
       </section>
 
