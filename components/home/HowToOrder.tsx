@@ -29,7 +29,7 @@ export function HowToOrder({ dict }: { dict: Dictionary }) {
                   <span className="text-5xl font-extrabold tracking-tight text-royal-200">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-royal-500 text-cream">
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-nur-brand text-cream shadow-coral">
                     <Icon size={22} weight="duotone" />
                   </span>
                 </div>

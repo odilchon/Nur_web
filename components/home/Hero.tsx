@@ -64,14 +64,24 @@ function PhoneMock({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         </div>
       </div>
       {/* Значок Nur Delivery */}
-      <div className="absolute -left-5 -top-5 grid h-16 w-16 place-items-center rounded-2xl bg-cream-card shadow-card ring-1 ring-royal-100">
-        <Image
-          src="/nur-logo.png"
-          alt=""
-          width={1020}
-          height={896}
-          className="h-9 w-auto"
-        />
+      <div className="absolute -left-6 -top-6 grid h-20 w-20 place-items-center rounded-3xl bg-cream-card p-[3px] shadow-coral">
+        <div className="grid h-full w-full place-items-center rounded-[1.1rem] bg-nur-brand">
+          <div className="grid h-[3.4rem] w-[3.4rem] place-items-center rounded-[0.9rem] bg-cream-card">
+            <Image
+              src="/nur-logo.png"
+              alt=""
+              width={1020}
+              height={896}
+              className="h-10 w-auto"
+            />
+          </div>
+        </div>
+      </div>
+      {/* Тёплый акцент скорости */}
+      <div className="absolute -bottom-4 -right-4 flex items-center gap-2 rounded-2xl
+        bg-coral-500 px-4 py-2.5 text-cream shadow-coral">
+        <Lightning size={16} weight="fill" />
+        <span className="text-xs font-bold">{dict.hero.chip1}</span>
       </div>
     </div>
   );
@@ -87,10 +97,21 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
 
   return (
     <section className="relative overflow-hidden">
+      {/* Фирменный фон-градиент */}
+      <Image
+        src="/nur-background.png"
+        alt=""
+        aria-hidden
+        width={1200}
+        height={675}
+        priority
+        className="pointer-events-none absolute -right-24 -top-24 h-[42rem] w-auto
+          select-none opacity-60 blur-2xl"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 -top-48 h-[34rem] w-[34rem]
-          rounded-full bg-nur-glow opacity-50 blur-3xl"
+          rounded-full bg-nur-glow opacity-40 blur-3xl"
       />
       <div className="container-nur relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-12">
         <div className="animate-fade-up lg:col-span-6">
@@ -98,13 +119,13 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight
             text-royal-800 sm:text-5xl lg:text-6xl">
             {hero.titleTop}{" "}
-            <span className="text-royal-500">{hero.titleAccent}</span>
+            <span className="text-brand-gradient">{hero.titleAccent}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             {hero.subtitle}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <InstagramButton dict={dict} />
+            <InstagramButton dict={dict} brand />
             <a href="#how" className="btn-ghost">
               {hero.secondary}
             </a>

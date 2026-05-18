@@ -6,8 +6,13 @@ import type { Dictionary } from "@/lib/dictionaries/ru";
 export function AppCta({ dict }: { dict: Dictionary }) {
   return (
     <section className="container-nur py-20">
-      <div className="surface grid gap-8 p-8 md:grid-cols-2 md:items-center md:p-14">
-        <div>
+      <div className="surface relative grid gap-8 overflow-hidden p-8 md:grid-cols-2 md:items-center md:p-14">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full
+            bg-nur-glow opacity-40 blur-3xl"
+        />
+        <div className="relative">
           <Eyebrow>Nur Delivery</Eyebrow>
           <h2 className="mt-4 text-balance text-3xl font-extrabold tracking-tight text-royal-800 md:text-4xl">
             {dict.appCta.title}
@@ -16,8 +21,8 @@ export function AppCta({ dict }: { dict: Dictionary }) {
             {dict.appCta.subtitle}
           </p>
         </div>
-        <div className="flex flex-col gap-4 md:items-end">
-          <InstagramButton dict={dict} />
+        <div className="relative flex flex-col gap-4 md:items-end">
+          <InstagramButton dict={dict} brand />
           <StoreBadges dict={dict} />
           <p className="text-xs text-ink-muted md:text-right">
             {dict.appCta.note}

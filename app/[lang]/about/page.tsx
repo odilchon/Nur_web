@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   Handshake,
@@ -39,7 +40,49 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
 
   return (
     <>
-      <PageHeader eyebrow={a.eyebrow} title={a.title} subtitle={a.subtitle} />
+      <PageHeader
+        eyebrow={a.eyebrow}
+        title={a.title}
+        subtitle={a.subtitle}
+        media={
+          <div className="relative grid h-56 w-56 place-items-center md:h-72 md:w-72">
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full bg-nur-glow opacity-50 blur-2xl"
+            />
+            <div className="relative grid h-44 w-44 animate-float place-items-center rounded-full
+              border border-royal-100 bg-cream-card shadow-soft md:h-56 md:w-56">
+              <Image
+                src="/nur-logo.png"
+                alt="Nur Delivery"
+                width={1020}
+                height={896}
+                priority
+                className="h-24 w-auto md:h-28"
+              />
+            </div>
+          </div>
+        }
+      />
+
+      {/* Логотип бренда */}
+      <section className="container-nur pt-12 md:pt-16">
+        <Reveal className="surface grain relative grid place-items-center overflow-hidden px-6 py-14 md:py-20">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-nur-glow opacity-25"
+          />
+          <Image
+            src="/nur-full-logo.png"
+            alt="Nur Delivery"
+            width={3240}
+            height={956}
+            priority
+            className="relative w-auto max-w-full"
+            style={{ height: "clamp(3.5rem, 9vw, 6.5rem)" }}
+          />
+        </Reveal>
+      </section>
 
       {/* Проблема и решение */}
       <section className="container-nur grid gap-5 py-20 md:grid-cols-2">

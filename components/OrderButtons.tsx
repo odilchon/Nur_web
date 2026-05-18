@@ -62,20 +62,22 @@ export function StoreBadges({
   );
 }
 
-/** Главный CTA — заказ в Instagram. */
+/** Главный CTA — заказ в Instagram. `brand` — кнопка в фирменном градиенте. */
 export function InstagramButton({
   dict,
   className,
+  brand = false,
 }: {
   dict: Dictionary;
   className?: string;
+  brand?: boolean;
 }) {
   return (
     <a
       href={site.instagramUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("btn-primary", className)}
+      className={cn(brand ? "btn-brand" : "btn-primary", className)}
     >
       <InstagramLogo size={20} weight="bold" />
       {dict.cta.instagram}
