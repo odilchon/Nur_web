@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    @apply bg-royal-500 text-cream;
+  }
+
+  /* Фокус для доступности */
+  :focus-visible {
+    outline: 2px solid theme("colors.royal.500");
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-nur {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-royal-500;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold
+      transition-all duration-200 ease-out;
+  }
+
+  .btn-primary {
+    @apply btn bg-royal-500 text-cream shadow-soft hover:bg-royal-600 active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply btn border border-royal-200 bg-cream-card text-royal-700 hover:border-royal-400
+      hover:bg-cream active:translate-y-px;
+  }
+
+  .btn-dark {
+    @apply btn bg-royal-800 text-cream hover:bg-royal-900 active:translate-y-px;
+  }
+
+  .surface {
+    @apply rounded-4xl border border-royal-100 bg-cream-card;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0
+      after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  /* Зернистая текстура поверх фирменного градиента */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    border-radius: inherit;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
