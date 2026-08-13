@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, getDictionary } from "@/lib/i18n";
 import { Hero } from "@/components/home/Hero";
 import { CategoryStrip } from "@/components/home/CategoryStrip";
+import { PartnerSpotlight } from "@/components/home/PartnerSpotlight";
 import { Categories } from "@/components/home/Categories";
 import { HowToOrder } from "@/components/home/HowToOrder";
 import { WhyNur } from "@/components/home/WhyNur";
@@ -19,6 +20,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
     <>
       <Hero lang={lang} dict={dict} />
       <CategoryStrip dict={dict} />
+      <PartnerSpotlight dict={dict} />
       <Categories lang={lang} dict={dict} />
       <HowToOrder dict={dict} />
       <WhyNur dict={dict} />

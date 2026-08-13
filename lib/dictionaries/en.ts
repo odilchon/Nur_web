@@ -134,11 +134,17 @@ export const en: Dictionary = {
     subtitle:
       "Since launching on January 26, 2026, the service has been growing in Khorog and beyond.",
     stats: [
-      { value: "27,840", label: "views on Instagram" },
-      { value: "20+", label: "completed orders" },
-      { value: "4", label: "countries ordered from" },
-      { value: "10–15", label: "minutes average delivery" },
+      { value: "60,000+", label: "views on Instagram" },
+      { value: "300+", label: "completed orders" },
+      { value: "12", label: "countries ordered from" },
     ],
+  },
+  partnerSpotlight: {
+    eyebrow: "We partner with",
+    title: "Delivery from CHAQ CHAQ cafe across Khorog",
+    text: "Choose your meal at CHAQ CHAQ, place the order directly by phone, and Nur Delivery will pick it up carefully and bring it to your door.",
+    badge: "Partnership and delivery",
+    cta: "Order by phone",
   },
   missionTeaser: {
     eyebrow: "Our mission",

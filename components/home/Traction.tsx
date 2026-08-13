@@ -16,7 +16,7 @@ export function Traction({ dict }: { dict: Dictionary }) {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-4xl border border-royal-100 bg-royal-100 md:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-4xl border border-royal-100 bg-royal-100 sm:grid-cols-3">
         {dict.traction.stats.map((stat, i) => (
           <Reveal
             key={stat.label}
