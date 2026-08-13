@@ -65,49 +65,8 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
         }
       />
 
-      {/* Логотип бренда */}
-      <section className="container-nur pt-12 md:pt-16">
-        <Reveal className="surface grain relative grid place-items-center overflow-hidden px-6 py-14 md:py-20">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-nur-glow opacity-25"
-          />
-          <Image
-            src="/nur-full-logo.png"
-            alt="Nur Delivery"
-            width={3240}
-            height={956}
-            priority
-            className="relative w-auto max-w-full"
-            style={{ height: "clamp(3.5rem, 9vw, 6.5rem)" }}
-          />
-        </Reveal>
-      </section>
-
-      {/* Проблема и решение */}
-      <section className="container-nur grid gap-5 py-20 md:grid-cols-2">
-        <Reveal className="surface p-8 md:p-10">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-glow-coral/15 text-glow-coral">
-            <Warning size={24} weight="duotone" />
-          </span>
-          <h2 className="mt-5 text-2xl font-extrabold tracking-tight text-royal-800">
-            {a.problemTitle}
-          </h2>
-          <p className="mt-3 leading-relaxed text-ink-soft">{a.problemText}</p>
-        </Reveal>
-        <Reveal delay={100} className="surface p-8 md:p-10">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-royal-50 text-royal-500">
-            <Lightbulb size={24} weight="duotone" />
-          </span>
-          <h2 className="mt-5 text-2xl font-extrabold tracking-tight text-royal-800">
-            {a.solutionTitle}
-          </h2>
-          <p className="mt-3 leading-relaxed text-ink-soft">{a.solutionText}</p>
-        </Reveal>
-      </section>
-
       {/* Миссия */}
-      <section className="container-nur pb-20">
+      <section className="container-nur py-20">
         <div className="grain relative overflow-hidden rounded-5xl bg-gradient-to-br from-glow-coral via-glow-violet to-glow-blue px-6 py-14 md:px-16 md:py-20">
           <div className="relative z-10 max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cream/75">
@@ -142,29 +101,75 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
       </section>
 
       {/* Путь проекта */}
+      <section className="container-nur grid gap-8 pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] lg:items-start">
+        <div>
+          <Eyebrow>{a.journeyTitle}</Eyebrow>
+          <ol className="mt-8 border-l border-royal-200 pl-6 md:pl-8">
+            {a.journey.map((item, i) => (
+              <Reveal
+                as="li"
+                key={item.title}
+                delay={i * 80}
+                className="relative pb-9 last:pb-0"
+              >
+                <span className="absolute -left-[1.92rem] top-1 grid h-4 w-4 place-items-center rounded-full bg-cream md:-left-[2.42rem]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-royal-500" />
+                </span>
+                <p className="text-xs font-bold uppercase tracking-wide text-royal-500">
+                  {item.date}
+                </p>
+                <h3 className="mt-1 text-xl font-bold text-royal-800">
+                  {item.title}
+                </h3>
+                <p className="mt-1 leading-relaxed text-ink-soft">{item.desc}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+
+        {/* Проблема и решение */}
+        <aside className="grid gap-5 lg:pt-9">
+          <Reveal className="surface p-7">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-glow-coral/15 text-glow-coral">
+              <Warning size={23} weight="duotone" />
+            </span>
+            <h2 className="mt-5 text-xl font-extrabold tracking-tight text-royal-800">
+              {a.problemTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              {a.problemText}
+            </p>
+          </Reveal>
+          <Reveal delay={100} className="surface p-7">
+            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-royal-50 text-royal-500">
+              <Lightbulb size={23} weight="duotone" />
+            </span>
+            <h2 className="mt-5 text-xl font-extrabold tracking-tight text-royal-800">
+              {a.solutionTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              {a.solutionText}
+            </p>
+          </Reveal>
+        </aside>
+      </section>
+
+      {/* Логотип бренда */}
       <section className="container-nur pb-20">
-        <Eyebrow>{a.journeyTitle}</Eyebrow>
-        <ol className="mt-8 border-l border-royal-200 pl-6 md:pl-8">
-          {a.journey.map((item, i) => (
-            <Reveal
-              as="li"
-              key={item.title}
-              delay={i * 80}
-              className="relative pb-9 last:pb-0"
-            >
-              <span className="absolute -left-[1.92rem] top-1 grid h-4 w-4 place-items-center rounded-full bg-cream md:-left-[2.42rem]">
-                <span className="h-2.5 w-2.5 rounded-full bg-royal-500" />
-              </span>
-              <p className="text-xs font-bold uppercase tracking-wide text-royal-500">
-                {item.date}
-              </p>
-              <h3 className="mt-1 text-xl font-bold text-royal-800">
-                {item.title}
-              </h3>
-              <p className="mt-1 leading-relaxed text-ink-soft">{item.desc}</p>
-            </Reveal>
-          ))}
-        </ol>
+        <Reveal className="surface grain relative grid place-items-center overflow-hidden px-6 py-12 md:py-16">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-nur-glow opacity-25"
+          />
+          <Image
+            src="/nur-full-logo.png"
+            alt="Nur Delivery"
+            width={3240}
+            height={956}
+            className="relative w-auto max-w-full"
+            style={{ height: "clamp(3rem, 7vw, 5rem)" }}
+          />
+        </Reveal>
       </section>
 
       {/* Команда */}
