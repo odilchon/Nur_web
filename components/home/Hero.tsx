@@ -113,7 +113,23 @@ export function Hero({ lang, dict }: { lang: Locale; dict: Dictionary }) {
         className="pointer-events-none absolute -right-32 -top-48 h-[34rem] w-[34rem]
           rounded-full bg-nur-glow opacity-40 blur-3xl"
       />
-      <div className="container-nur relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-12">
+      <div className="container-nur relative pt-8 md:pt-12">
+        <div className="surface grain relative mx-auto grid max-w-3xl place-items-center overflow-hidden px-6 py-6 shadow-soft md:px-10 md:py-8">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-nur-glow opacity-20"
+          />
+          <Image
+            src="/nur-full-logo.png"
+            alt="Nur Delivery"
+            width={3240}
+            height={956}
+            priority
+            className="relative h-auto w-full max-w-[24rem] sm:max-w-[30rem]"
+          />
+        </div>
+      </div>
+      <div className="container-nur relative grid items-center gap-12 py-12 md:py-16 lg:grid-cols-12">
         <div className="animate-fade-up lg:col-span-6">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
           <h1 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight
