@@ -20,7 +20,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
     <>
       <Hero lang={lang} dict={dict} />
       <CategoryStrip dict={dict} />
-      <PartnerSpotlight dict={dict} />
+      <PartnerSpotlight dict={dict} lang={lang} />
       <Categories lang={lang} dict={dict} />
       <HowToOrder dict={dict} />
       <WhyNur dict={dict} />

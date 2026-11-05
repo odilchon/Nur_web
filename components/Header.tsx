@@ -3,9 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { List, X, InstagramLogo } from "@phosphor-icons/react";
+import { List, X, ArrowUpRight } from "@phosphor-icons/react";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { SlidingNavigation } from "./SlidingNavigation";
 import { navItems, href } from "@/lib/nav";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/cn";
@@ -19,37 +20,27 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const isActive = (path: string) => pathname === href(lang, path);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-royal-100 bg-cream/85 backdrop-blur-md">
-      <div className="container-nur flex h-16 items-center justify-between gap-4">
-        <Logo lang={lang} full />
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-5">
+      <div className="container-nur nav-glass flex h-[68px] items-center justify-between gap-3 rounded-full px-4 sm:px-6">
+        <Logo lang={lang} className="shrink-0" />
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.key}
-              href={href(lang, item.path)}
-              className={cn(
-                "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
-                isActive(item.path)
-                  ? "bg-royal-50 text-royal-700"
-                  : "text-ink-soft hover:text-royal-600",
-              )}
-            >
-              {dict.nav[item.key]}
-            </Link>
-          ))}
+        <nav className="hidden shrink-0 items-center gap-0.5 xl:flex">
+          <SlidingNavigation label="Навигация" activeHref={pathname} items={[
+            { href: href(lang), label: dict.nav.home },
+            ...navItems.map((item) => ({ href: href(lang, item.path), label: dict.nav[item.key] })),
+          ]} />
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <LanguageSwitcher current={lang} />
           <a
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary !px-5 !py-2.5"
+            className="btn-dark !px-5 !py-2.5"
           >
-            <InstagramLogo size={18} weight="bold" />
             {dict.cta.instagram}
+            <ArrowUpRight size={17} weight="bold" className="text-coral-300" />
           </a>
         </div>
 
@@ -58,15 +49,15 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Меню"
-          className="grid h-10 w-10 place-items-center rounded-full border border-royal-200
-            bg-cream-card text-royal-700 lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/70
+            bg-white/70 text-royal-800 xl:hidden"
         >
           {open ? <X size={20} weight="bold" /> : <List size={20} weight="bold" />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-royal-100 bg-cream lg:hidden">
+        <div className="nav-glass mx-2 mt-2 rounded-[28px] xl:hidden">
           <nav className="container-nur flex flex-col gap-1 py-4">
             <Link
               href={href(lang)}
@@ -96,11 +87,11 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
                 href={site.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary flex-1 !py-3"
+                className="btn-dark flex-1 !py-3"
                 onClick={() => setOpen(false)}
               >
-                <InstagramLogo size={18} weight="bold" />
                 {dict.cta.instagram}
+                <ArrowUpRight size={17} weight="bold" />
               </a>
             </div>
           </nav>

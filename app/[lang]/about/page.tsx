@@ -45,20 +45,19 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
         title={a.title}
         subtitle={a.subtitle}
         media={
-          <div className="relative grid h-56 w-56 place-items-center md:h-72 md:w-72">
+          <div className="relative grid h-44 w-72 place-items-center md:h-56 md:w-[23rem]">
             <div
               aria-hidden
               className="absolute inset-0 rounded-full bg-nur-glow opacity-50 blur-2xl"
             />
-            <div className="relative grid h-44 w-44 animate-float place-items-center rounded-full
-              border border-royal-100 bg-cream-card shadow-soft md:h-56 md:w-56">
+            <div className="glass-card relative grid h-36 w-72 place-items-center rounded-[2rem] md:h-44 md:w-[23rem]">
               <Image
-                src="/nur-logo.png"
+                src="/nur-full-logo.png"
                 alt="Nur Delivery"
-                width={1020}
-                height={896}
+                width={3240}
+                height={956}
                 priority
-                className="h-24 w-auto md:h-28"
+                className="h-auto w-48 md:w-64"
               />
             </div>
           </div>
@@ -152,24 +151,6 @@ export default function AboutPage({ params }: { params: { lang: string } }) {
             </p>
           </Reveal>
         </aside>
-      </section>
-
-      {/* Логотип бренда */}
-      <section className="container-nur pb-20">
-        <Reveal className="surface grain relative grid place-items-center overflow-hidden px-6 py-12 md:py-16">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-nur-glow opacity-25"
-          />
-          <Image
-            src="/nur-full-logo.png"
-            alt="Nur Delivery"
-            width={3240}
-            height={956}
-            className="relative w-auto max-w-full"
-            style={{ height: "clamp(3rem, 7vw, 5rem)" }}
-          />
-        </Reveal>
       </section>
 
       {/* Команда */}

@@ -41,13 +41,13 @@ export function Categories({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <Reveal
               key={item.name}
               delay={i * 60}
-              className={`group surface flex gap-5 p-6 transition-all duration-200
-                hover:-translate-y-1 hover:border-royal-300 hover:shadow-card
+              className={`group surface flex gap-5 p-6 transition-all duration-300
+                hover:-translate-y-1 hover:border-coral-200 hover:shadow-card
                 ${spans[i]} ${wide ? "items-center" : "flex-col"}`}
             >
               <span
-                className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-royal-50
-                  text-royal-500 transition-colors group-hover:bg-royal-500 group-hover:text-cream"
+                className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[linear-gradient(135deg,#fff0de,#f9e4f2_60%,#e7e9fa)]
+                  text-royal-700 transition-colors group-hover:text-coral-600"
               >
                 <Icon size={24} weight="duotone" />
               </span>

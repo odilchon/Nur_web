@@ -28,7 +28,7 @@ export const en: Dictionary = {
     orderChannel: "Orders via Instagram and the app only",
   },
   hero: {
-    eyebrow: "Delivery in Khorog",
+    eyebrow: "Khorog and GBAO’s first express delivery",
     titleTop: "Everything you need —",
     titleAccent: "delivered in 15 minutes",
     subtitle:
@@ -186,9 +186,9 @@ export const en: Dictionary = {
   },
   about: {
     eyebrow: "About us",
-    title: "Nur Delivery — next-level delivery for Khorog",
+    title: "Nur Delivery — the first express delivery service in Khorog and GBAO",
     subtitle:
-      "We are a local startup making delivery in a small city fast, transparent and convenient.",
+      "We deliver groceries, drinks, medicine, flowers and other essentials. Our local team makes delivery fast and convenient.",
     problemTitle: "The problem",
     problemText:
       "The grocery delivery market in Tajikistan remains underdeveloped and fragmented. Most cities lack systematic services that provide fast, transparent and convenient delivery from supermarkets.",
@@ -316,6 +316,8 @@ export const en: Dictionary = {
     ],
     ctaTitle: "Want to become a partner?",
     ctaText: "Message us on Instagram — we will discuss the terms of cooperation.",
+    ctaStepsTitle: "How to get started",
+    ctaSteps: ["Tell us about your shop, café or pharmacy", "Discuss delivery and terms of cooperation"],
   },
   couriersPage: {
     eyebrow: "Couriers",
@@ -346,6 +348,8 @@ export const en: Dictionary = {
     ],
     ctaTitle: "Ready to join?",
     ctaText: "Message us on Instagram — we will tell you how to start.",
+    ctaStepsTitle: "How to get started",
+    ctaSteps: ["Tell us about yourself and your experience", "Discuss your schedule and ask questions"],
   },
   footer: {
     tagline: "Fast delivery of groceries, food, medicine and flowers in Khorog.",

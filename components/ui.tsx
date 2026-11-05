@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
-import { InstagramButton, StoreBadges } from "./OrderButtons";
+import { ArrowUpRight, ChatCircleDots, InstagramLogo } from "@phosphor-icons/react/dist/ssr";
+import { site } from "@/lib/site";
 import type { Dictionary } from "@/lib/dictionaries/ru";
 
 /** Надзаголовок секции — короткая метка с линией. */
@@ -64,10 +65,12 @@ export function CtaBand({
   title,
   text,
   dict,
+  steps,
 }: {
   title: string;
   text: string;
   dict: Dictionary;
+  steps?: { title: string; items: string[] };
 }) {
   return (
     <section className="container-nur py-20">
@@ -76,16 +79,35 @@ export function CtaBand({
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-nur-glow opacity-50"
         />
-        <div className="relative max-w-2xl">
+        <div className={cn("relative grid items-center gap-10", steps && "lg:grid-cols-[1fr_0.75fr] lg:gap-16")}>
+        <div className="max-w-2xl">
           <h2 className="text-3xl font-extrabold tracking-tight text-cream md:text-4xl">
             {title}
           </h2>
           <p className="mt-4 leading-relaxed text-cream/70">{text}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <InstagramButton dict={dict} brand />
-            <StoreBadges dict={dict} />
+            <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" className="btn-brand">
+              <InstagramLogo size={19} weight="bold" />
+              {dict.cta.contactUs}
+              <ArrowUpRight size={18} weight="bold" />
+            </a>
           </div>
-          <p className="mt-4 text-xs text-cream/45">{dict.appCta.note}</p>
+        </div>
+        {steps && (
+          <div className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-md md:p-8">
+            <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[.14em] text-cream/80">
+              <ChatCircleDots size={21} weight="duotone" />{steps.title}
+            </p>
+            <ol className="mt-5 space-y-4">
+              {steps.items.map((item, i) => (
+                <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-cream/90">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-xs font-bold">{i + 1}</span>
+                  <span className="pt-1">{item}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
         </div>
       </div>
     </section>

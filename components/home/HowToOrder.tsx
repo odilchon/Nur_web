@@ -25,6 +25,7 @@ export function HowToOrder({ dict }: { dict: Dictionary }) {
             const Icon = stepIcons[i];
             return (
               <Reveal as="li" key={step.title} delay={i * 100} className="relative">
+                <div className="glass-card h-full rounded-[2rem] p-6 md:p-7">
                 <div className="flex items-center gap-4">
                   <span className="text-5xl font-extrabold tracking-tight text-royal-200">
                     {String(i + 1).padStart(2, "0")}
@@ -37,6 +38,7 @@ export function HowToOrder({ dict }: { dict: Dictionary }) {
                   {step.title}
                 </h3>
                 <p className="mt-2 leading-relaxed text-ink-soft">{step.desc}</p>
+                </div>
               </Reveal>
             );
           })}

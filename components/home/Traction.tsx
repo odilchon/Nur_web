@@ -1,5 +1,6 @@
 import { Eyebrow } from "../ui";
 import { Reveal } from "../Reveal";
+import { CountUp } from "./CountUp";
 import type { Dictionary } from "@/lib/dictionaries/ru";
 
 /** Блок с цифрами проекта. */
@@ -16,15 +17,15 @@ export function Traction({ dict }: { dict: Dictionary }) {
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-4xl border border-royal-100 bg-royal-100 sm:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {dict.traction.stats.map((stat, i) => (
           <Reveal
             key={stat.label}
             delay={i * 80}
-            className="bg-cream-card px-6 py-9"
+            className="glass-card rounded-[2rem] px-6 py-9"
           >
             <p className="text-4xl font-extrabold tracking-tight text-royal-600 md:text-5xl">
-              {stat.value}
+              <CountUp value={stat.value} />
             </p>
             <p className="mt-2 text-sm leading-snug text-ink-soft">{stat.label}</p>
           </Reveal>

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Sparkle } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+import { ArrowRight, MapPin } from "@phosphor-icons/react/dist/ssr";
 import { Eyebrow } from "../ui";
 import { href } from "@/lib/nav";
 import { site } from "@/lib/site";
@@ -28,14 +29,13 @@ export function MissionTeaser({ lang, dict }: { lang: Locale; dict: Dictionary }
           </Link>
         </div>
 
-        <div className="grain relative flex min-h-[16rem] flex-col justify-between overflow-hidden rounded-4xl bg-gradient-to-br from-glow-coral via-glow-violet to-glow-blue p-8 md:p-12 lg:col-span-5">
-          <Sparkle
-            size={28}
-            weight="fill"
-            className="relative z-10 text-cream/90"
-          />
+        <div className="grain relative flex min-h-[19rem] flex-col justify-between overflow-hidden rounded-4xl bg-gradient-to-br from-glow-coral via-glow-violet to-glow-blue p-8 md:p-12 lg:col-span-5">
+          <Image src="/khorog.png" alt="" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-50 mix-blend-luminosity" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-royal-900/75 via-glow-violet/30 to-glow-coral/30" />
+          <span aria-hidden />
           <div className="relative z-10">
-            <p className="text-3xl font-extrabold tracking-tight text-cream">
+            <p className="flex items-center gap-2 text-3xl font-extrabold tracking-tight text-cream">
+              <MapPin size={25} weight="fill" />
               {site.city[lang]}
             </p>
             <p className="mt-1.5 text-sm font-medium text-cream/80">

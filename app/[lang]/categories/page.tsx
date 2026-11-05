@@ -18,24 +18,26 @@ export function generateMetadata({
 function PriceList({
   title,
   rows,
+  from,
 }: {
   title: string;
   rows: { label: string; price: string }[];
+  from: string;
 }) {
   return (
-    <div className="surface p-7 md:p-8">
-      <h3 className="text-lg font-bold text-royal-800">{title}</h3>
-      <ul className="mt-4 divide-y divide-royal-100">
-        {rows.map((row) => (
+    <div className="glass-card self-start rounded-[2rem] p-6 md:p-8">
+      <h3 className="text-xl font-extrabold text-royal-800">{title}</h3>
+      <ul className="mt-5 divide-y divide-royal-100">
+        {rows.map((row, i) => (
           <li
             key={row.label}
-            className="flex items-center justify-between gap-6 py-3.5"
+            className="flex items-center justify-between gap-5 py-4"
           >
-            <span className="text-sm leading-snug text-ink-soft">
-              {row.label}
+            <span className="flex items-center gap-3 text-sm font-medium leading-snug text-royal-800">
+              <span className="text-xs font-bold text-royal-300">{String(i + 1).padStart(2, "0")}</span>{row.label}
             </span>
-            <span className="shrink-0 rounded-full bg-royal-50 px-3 py-1 text-sm font-bold text-royal-600">
-              {row.price}
+            <span className="shrink-0 rounded-full bg-[linear-gradient(120deg,#fff0e8,#f7eafa)] px-3 py-1.5 text-sm font-extrabold text-royal-800">
+              {from} {row.price}
             </span>
           </li>
         ))}
@@ -52,6 +54,7 @@ export default function CategoriesPage({
   if (!isLocale(params.lang)) notFound();
   const dict = getDictionary(params.lang);
   const c = dict.categoriesPage;
+  const from = { ru: "от", en: "from", tg: "аз" }[params.lang];
 
   return (
     <>
@@ -59,13 +62,18 @@ export default function CategoriesPage({
         eyebrow={dict.nav.categories}
         title={c.pricingTitle}
         subtitle={c.pricingSubtitle}
+        media={<div className="glass-card relative flex min-h-[230px] w-full max-w-[390px] flex-col justify-end overflow-hidden rounded-[2.5rem] p-8">
+          <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(238,103,145,.28),transparent_50%),radial-gradient(circle_at_20%_70%,rgba(255,190,113,.28),transparent_48%)]" />
+          <p className="relative text-xs font-bold uppercase tracking-[.17em] text-royal-600">{c.baseTitle}</p>
+          <p className="relative mt-3 text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-none tracking-tight text-royal-800">{from} {c.base[0].price}</p>
+        </div>}
       />
 
       {/* Стоимость доставки */}
       <section className="container-nur py-20">
-        <div className="grid gap-4 lg:grid-cols-2">
-          <PriceList title={c.baseTitle} rows={c.base} />
-          <PriceList title={c.extraTitle} rows={c.extra} />
+        <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,.8fr)]">
+          <PriceList title={c.baseTitle} rows={c.base} from={from} />
+          <PriceList title={c.extraTitle} rows={c.extra} from={from} />
         </div>
 
         <p className="mt-6 flex items-start gap-2.5 text-sm leading-relaxed text-ink-muted">
