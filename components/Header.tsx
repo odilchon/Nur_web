@@ -62,7 +62,8 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
             <Link
               href={href(lang)}
               onClick={() => setOpen(false)}
-              className="rounded-2xl px-4 py-3 text-sm font-medium text-ink-soft hover:bg-royal-50"
+              aria-current={isActive("") ? "page" : undefined}
+              className={cn("mobile-nav-link", isActive("") && "is-selected")}
             >
               {dict.nav.home}
             </Link>
@@ -71,11 +72,10 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
                 key={item.key}
                 href={href(lang, item.path)}
                 onClick={() => setOpen(false)}
+                aria-current={isActive(item.path) ? "page" : undefined}
                 className={cn(
-                  "rounded-2xl px-4 py-3 text-sm font-medium transition-colors",
-                  isActive(item.path)
-                    ? "bg-royal-50 text-royal-700"
-                    : "text-ink-soft hover:bg-royal-50",
+                  "mobile-nav-link",
+                  isActive(item.path) && "is-selected",
                 )}
               >
                 {dict.nav[item.key]}

@@ -16,10 +16,12 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-cream text-ink antialiased;
+    overflow-x: clip;
     font-feature-settings: "ss01", "cv01";
     background-color: #fbfaf7;
   }
@@ -227,4 +229,22 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-product { animation: none; }
+}
+
+.mobile-nav-link {
+  align-self: flex-start;
+  border-radius: 9999px;
+  padding: .75rem 1rem;
+  color: rgba(34, 50, 74, .78);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 240ms ease, background 240ms ease;
+}
+.mobile-nav-link:hover { color: #2577c8; }
+.mobile-nav-link.is-selected {
+  color: #1682dc;
+  background: linear-gradient(165deg, rgba(255,255,255,.58), rgba(185,195,207,.38) 48%, rgba(235,240,245,.58));
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.95), inset 0 -2px 4px rgba(95,110,130,.14), 0 2px 8px rgba(36,49,71,.12);
+  backdrop-filter: blur(14px) saturate(160%);
 }

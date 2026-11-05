@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Nur Delivery — быстрая доставка продуктов, еды, лекарств и цветов в городе Хорог.",
-  icons: { icon: "/icon.svg" },
+  icons: { icon: [{ url: "/nd-icon.png?v=2", type: "image/png" }, { url: "/icon.svg?v=2", type: "image/svg+xml" }], apple: "/nd-icon.png?v=2" },
 };
 
 export default function RootLayout({

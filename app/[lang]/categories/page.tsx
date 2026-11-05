@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Info } from "@phosphor-icons/react/dist/ssr";
+import { Info, MapPin, Package } from "@phosphor-icons/react/dist/ssr";
 import { isLocale, getDictionary } from "@/lib/i18n";
 import { PageHeader, Eyebrow, CtaBand } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -62,8 +62,16 @@ export default function CategoriesPage({
         eyebrow={dict.nav.categories}
         title={c.pricingTitle}
         subtitle={c.pricingSubtitle}
-        media={<div className="glass-card relative flex min-h-[230px] w-full max-w-[390px] flex-col justify-end overflow-hidden rounded-[2.5rem] p-8">
+        media={<div className="glass-card relative flex min-h-[270px] w-full max-w-[390px] flex-col justify-end overflow-hidden rounded-[2.5rem] p-8">
           <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(238,103,145,.28),transparent_50%),radial-gradient(circle_at_20%_70%,rgba(255,190,113,.28),transparent_48%)]" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-7 top-3 h-[140px]">
+            <div className="absolute inset-0 bg-[url('/khorog-map-shape.png')] bg-contain bg-center bg-no-repeat opacity-[.13] mix-blend-multiply" />
+            <svg viewBox="0 0 300 120" className="absolute inset-0 h-full w-full" fill="none" preserveAspectRatio="none">
+              <path d="M110 66 C140 91 155 54 198 57" stroke="#d65a68" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 6" opacity=".65" />
+            </svg>
+            <span className="absolute left-[32%] top-[38%] grid h-7 w-7 place-items-center rounded-full border border-white/80 bg-white/75 text-coral-500 shadow-sm"><Package size={17} weight="duotone" /></span>
+            <span className="absolute right-[33%] top-[30%] grid h-7 w-7 place-items-center rounded-full border border-white/80 bg-white/80 text-coral-500 shadow-sm"><MapPin size={20} weight="fill" /></span>
+          </div>
           <p className="relative text-xs font-bold uppercase tracking-[.17em] text-royal-600">{c.baseTitle}</p>
           <p className="relative mt-3 text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-none tracking-tight text-royal-800">{from} {c.base[0].price}</p>
         </div>}
